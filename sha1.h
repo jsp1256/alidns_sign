@@ -16,6 +16,10 @@ typedef struct
 #endif
 
 #define SHA1HANDSOFF
+/**
+下面定义了小端优先，已知windows下mingw32编译器需要定义，否则将导致运算出错
+*/
+#define __LITTLE_ENDIAN
 
 #define rol(value, bits) (((value) << (bits)) | ((value) >> (32 - (bits))))
 
