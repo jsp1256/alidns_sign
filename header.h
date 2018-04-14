@@ -6,8 +6,11 @@
 #include <stdlib.h>
 #include <memory.h>
 #include "sha1.h"
+#define CHAR_SIZE 150
 
-void dictionary_sort(int size);  //用于字典排序
+char s[30][CHAR_SIZE]; //全局字符数组
+
+void dictionary_sort (char s[][CHAR_SIZE],int size,int size2);//用于字典排序
 void char_process(char *string); //字符处理函数
 
 /**
@@ -17,7 +20,6 @@ int hex2dec(char c);
 char dec2hex(short int c);
 void urlencode(char url[],int flag);      //url编码
 void urldecode(char url[]);      //url解码
-
 /**
 BASE64_Encode/Decode
 */

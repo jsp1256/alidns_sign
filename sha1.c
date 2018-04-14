@@ -231,21 +231,3 @@ int hmac_sha
     //pr_sha(stdout, out, t) ;
     return t;
 }
-
-/**
-int main()
-{
-    unsigned char key[1024],string[1024],out[1024] ;
-    int key_strlen,string_len,t;
-
-    strcpy((char*)string,"jianruweichendfdfdfsafasfafadfg");
-    strcpy((char*)key,"123");
-
-    string_len=strlen((char*)string);
-    key_strlen=strlen((char*)key);
-    t=400;
-    hmac_sha(key,key_strlen,string,string_len,out,t);
-
-    return 0;
-}
-*/

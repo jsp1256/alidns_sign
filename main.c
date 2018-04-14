@@ -1,37 +1,6 @@
 #include "header.h"
-#define MAX_BUFFER 400
+#define MAX_BUFFER 500
 
-
-/**
-用于处理字典排序的函数，并进行URL编码
-*/
-void dictionary_sort(int size)
-{
-    if(!size%2)
-        printf("ERROR");
-    int i=0,j,k;
-    char l[100] = {0};
-    while (size--)
-    {
-        for (k = i; k > 0; k--)
-        {
-            for (j = k - 1; j >= 0; j--)
-                if (strcmp(s[j], s[k]) > 0)
-                {
-                    strcpy(l, s[j]);
-                    strcpy(s[j], s[k]);
-                    strcpy(s[k], l);
-                }
-        }
-        i++;
-    }
-
-    //printf("after sort:\n");
-    for (j = 0; j < i; j++){
-        urlencode(s[j],1);
-        //printf("%s\n", s[j]);
-    }
-}
 /**
 用于处理请求字符串，进行URL编码并转换为StringToSign
 */
@@ -43,13 +12,18 @@ void char_process(char *string)
     for(i=0;i<len;i++)
         if(string_tmp[i]=='?')
             break;
+    /**
+    * i:全局字符串跟踪指针
+    * j:子串首地址序号
+    * k:子串跟踪指针
+    */
     for(i=i+1,j=0,k=0;i<len;i++){
         if(string_tmp[i]=='&')
             i++,j++,k=0;
         s[j][k]=string_tmp[i];
         k++;
     }
-    dictionary_sort(s_size=j+1);
+    dictionary_sort(s,s_size=j+1,CHAR_SIZE);
     strcpy(string,"GET&%2F&");
     for(i=0,j=0;i<MAX_BUFFER&&j<s_size;i++,j++){
         for(k=0;k<strlen(s[j]);k++)
