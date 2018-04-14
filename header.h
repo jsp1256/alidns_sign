@@ -10,7 +10,7 @@
 
 char s[30][CHAR_SIZE]; //全局字符数组
 
-void dictionary_sort (char s[][CHAR_SIZE],int size,int size2);//用于字典排序
+void dictionary_sort (char s[][CHAR_SIZE],int size);//用于字典排序
 void char_process(char *string); //字符处理函数
 
 /**

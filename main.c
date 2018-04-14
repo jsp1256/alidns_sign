@@ -23,7 +23,7 @@ void char_process(char *string)
         s[j][k]=string_tmp[i];
         k++;
     }
-    dictionary_sort(s,s_size=j+1,CHAR_SIZE);
+    dictionary_sort(s,s_size=j+1);
     strcpy(string,"GET&%2F&");
     for(i=0,j=0;i<MAX_BUFFER&&j<s_size;i++,j++){
         for(k=0;k<strlen(s[j]);k++)
